@@ -6,6 +6,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import { connectDB } from "./config/db.config";
+import WorkSpaceRouter from "./module/workspaces/workspace.routes";
 
 const app = express();
 
@@ -29,6 +30,8 @@ app.get("/", (_req, res) => {
     message: "crm-api is running successfully",
     });
 });
+
+app.use("/workspaces", WorkSpaceRouter);
 
 const PORT = process.env.PORT || 8080;
 
